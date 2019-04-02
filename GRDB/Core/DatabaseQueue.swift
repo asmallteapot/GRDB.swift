@@ -1,6 +1,6 @@
 import Foundation
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
 #endif
 
@@ -82,8 +82,8 @@ extension DatabaseQueue {
     public func releaseMemory() {
         writer.sync { $0.releaseMemory() }
     }
-    
-    #if os(iOS)
+
+    #if os(iOS) || os(tvOS)
     /// Listens to UIApplicationDidEnterBackgroundNotification and
     /// UIApplicationDidReceiveMemoryWarningNotification in order to release
     /// as much memory as possible.
