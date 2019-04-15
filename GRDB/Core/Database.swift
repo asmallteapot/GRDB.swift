@@ -337,7 +337,7 @@ extension Database {
         #elseif os(Linux)
             setupTrace_v1()
         #else
-            if #available(iOS 10.0, OSX 10.12, watchOS 3.0, *) {
+            if #available(iOS 10.0, OSX 10.12, watchOS 3.0, tvOS 10.0, *) {
                 let dbPointer = Unmanaged.passUnretained(self).toOpaque()
                 sqlite3_trace_v2(sqliteConnection, UInt32(SQLITE_TRACE_STMT), { (mask, dbPointer, stmt, unexpandedSQL) -> Int32 in
                     return Database.trace_v2(mask, dbPointer, stmt, unexpandedSQL, sqlite3_expanded_sql)

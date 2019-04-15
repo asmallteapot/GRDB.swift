@@ -7,7 +7,7 @@ import UIKit
 /// A DatabaseQueue serializes access to an SQLite database.
 public final class DatabaseQueue: DatabaseWriter {
     private var writer: SerializedDatabase
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     private weak var application: UIApplication?
     #endif
     
